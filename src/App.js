@@ -1,9 +1,11 @@
 import React from 'react';
+import ProductTable from './Components/ProductTable'
 
 const App = ({products}) => {
-  const skus = Object.keys(products);
-  const items = skus.map(sku => <li>{products[sku].title}</li>);
-  return <ul>{items}</ul>;
+  const images = ""
+  return (
+      <ProductTable products={products} images={images}/>
+    );
 };
 
 export default App;
