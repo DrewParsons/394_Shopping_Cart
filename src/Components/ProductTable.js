@@ -6,7 +6,7 @@ const ProductTable = ({products}) => {
   //creates card element for each sku in the json object
   const items = skus.map(sku => <ShirtCard product={products[sku]}/>);
   return (
-      <div style={{position: "fixed", marginLeft: "25%", width: "75%", marginTop: "35px"}}>
+      <div style={{marginLeft: "25%", width: "75%", marginTop: "35px"}}>
       <div>16 product(s) found.</div>
       {items}
       </div>

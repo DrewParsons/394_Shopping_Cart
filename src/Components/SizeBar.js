@@ -22,16 +22,16 @@ function SizeBar(props) {
       <div className="size-bar">
         <Typography variant="h6" >Sizes</Typography>
         <hr style={{width: "35%", marginLeft: "0"}}></hr>
-        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.small = !props.small}>
+        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.small}>
           s
         </Fab>
-        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.medium = !props.medium}>
+        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.medium}>
           m
         </Fab>
-        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.large = !props.large}>
+        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.large}>
           l
         </Fab>
-        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.xlarge = !props.xlarge}>
+        <Fab color="primary" aria-label="Add" size="small" className={classes.fab} onClick={props.xlarge}>
           xl
         </Fab>
       </div>

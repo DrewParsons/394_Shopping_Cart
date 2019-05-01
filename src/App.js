@@ -13,28 +13,42 @@ class App extends Component {
       large: false,
       xlarge: false
     };
+
+    this.handleSmall = this.handleSmall.bind(this)
+    this.handleMedium = this.handleMedium.bind(this)
+    this.handleLarge = this.handleLarge.bind(this)
+    this.handleLarge = this.handleLarge.bind(this);
   }
 
   handleSmall() {
-    this.props.small = !this.props.small
+    console.log("please")
+    this.setState( {
+      small: !this.state.small
+    })
   }
 
   handleMedium() {
-    this.props.medium = !this.props.medium
+    this.setState( {
+      medium: !this.state.medium
+    })
   }
 
   handleLarge() {
-    this.props.large = !this.props.large
+    this.setState( {
+      large: !this.state.large
+    })
   }
 
   handleXlarge() {
-    this.props.xlarge = !this.props.xlarge
+    this.setState( {
+      xlarge: !this.state.xlarge
+    })
   }
 
   render() {
   return (
     <div>
-      <SizeBar small={this.state.small} medium={this.state.medium} large={this.state.large} xlarge={this.state.xlarge} />
+      <SizeBar small={this.handleSmall} medium={this.handleMedium} large={this.handleLarge} xlarge={this.handleXlarge} />
       <ProductTable products={this.state.products}/>
     </div>
     );
