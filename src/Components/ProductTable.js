@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import Card from './Card'
+import ShirtCard from './ShirtCard.js'
 
-const ProductTable = ({products, images}) => {
+const ProductTable = ({products}) => {
   const skus = Object.keys(products);
   //creates card element for each sku in the json object
-  const items = skus.map(sku => <Card product={products[sku]} images={images}/>);
+  const items = skus.map(sku => <ShirtCard product={products[sku]}/>);
   return (
-      <div>{items}</div>
+      <div style={{position: "fixed", marginLeft: "25%", width: "75%", marginTop: "35px"}}>
+      <div>16 product(s) found.</div>
+      {items}
+      </div>
     );
 } 
 

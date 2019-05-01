@@ -1,0 +1,9 @@
+.size-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 25%;
+  height: 100vh;
+  margin-top: 35px;
+  margin-left: 35px;
+}
