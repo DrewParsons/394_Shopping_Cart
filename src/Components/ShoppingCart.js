@@ -15,11 +15,15 @@ const styles = {
   list: {
     width: 400,
   },
+  listItem: {
+    height: 100,
+  }
 };
 
 const ShoppingCart = (props) => {
   const {classes} = props;
-  const cart = props.cart
+  const cart = props.cart;
+  const products = props.cartItems
   const open = (cart) => {
     return cart
   }
@@ -34,12 +38,12 @@ const ShoppingCart = (props) => {
           >
           <div className={classes.list}>
             <List>
-              {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                  <ListItemText primary={text} />
+              {products ? 
+                products.map(product => (
+                <ListItem className={classes.listItem}>
+                  {product.title}
                 </ListItem>
-              ))}
+              )) : <div></div> }
             </List>
           </div>
         </div>

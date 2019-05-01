@@ -13,19 +13,34 @@ class App extends Component {
       small: false,
       medium: false,
       large: false,
-      xlarge: false
+      xlarge: false,
+      cartItems: [],
     };
 
     this.handleSmall = this.handleSmall.bind(this)
     this.handleMedium = this.handleMedium.bind(this)
     this.handleLarge = this.handleLarge.bind(this)
-    this.handleLarge = this.handleLarge.bind(this);
+    this.handleLarge = this.handleLarge.bind(this)
+    this.toggleCart = this.toggleCart.bind(this)
+    this.addToCart = this.addToCart.bind(this)
   }
 
+  addToCart(product) {
+    let newCart = this.state.cartItems
+    newCart.push(product)
+    console.log(this.state.cartItems)
+    this.setState({
+      cartItems: newCart
+    })
+    if(!this.state.cart) {
+      this.toggleCart()
+    }
+  }
 
 
   toggleCart() {
     this.setState({cart: !this.state.cart})
+    // console.log(this.state.cartItems)
   }
 
   handleSmall() {
@@ -53,12 +68,13 @@ class App extends Component {
     })
   }
 
+
   render() {
   return (
     <div>
       <SizeBar small={this.handleSmall} medium={this.handleMedium} large={this.handleLarge} xlarge={this.handleXlarge} />
-      <ProductTable products={this.state.products}/>
-      <ShoppingCart toggleCart={this.toggleCart} cart={this.state.cart}/>
+      <ProductTable products={this.state.products} addToCart={this.addToCart}/>
+      <ShoppingCart toggleCart={this.toggleCart} cart={this.state.cart} cartItems={this.state.cartItems}/>
     </div>
     );
   }

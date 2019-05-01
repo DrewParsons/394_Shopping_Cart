@@ -39,7 +39,7 @@ const styles = {
 
 function ShirtCard(props) {
   const { classes } = props;
-  const title = props.product.title
+  const product = props.product
   return (
     <Card className={classes.card}>
         <CardMedia
@@ -52,7 +52,7 @@ function ShirtCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" style={{height: "60px"}}>
-            {title}
+            {product.title}
           </Typography>
           <hr className={classes.bar} color="primary"></hr>
           <Typography component="p" variant="h6">
@@ -61,7 +61,7 @@ function ShirtCard(props) {
           </Typography>
         </CardContent>
       <CardActions>
-        <Button variant="outlined" size="medium" color="primary" className={classes.buy}>
+        <Button variant="outlined" size="medium" color="primary" className={classes.buy} onClick={() => props.addToCart(product)}>
           Add to Cart
         </Button>
       </CardActions>
