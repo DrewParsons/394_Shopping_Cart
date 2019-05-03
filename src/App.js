@@ -2,6 +2,8 @@ import React, { Component, useState } from "react";
 import ProductTable from './Components/ProductTable'
 import SizeBar from './Components/SizeBar.js'
 import ShoppingCart from './Components/ShoppingCart'
+import Button from '@material-ui/core/Button';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class App extends Component {
     this.handleLarge = this.handleLarge.bind(this)
     this.toggleCart = this.toggleCart.bind(this)
     this.addToCart = this.addToCart.bind(this)
+    this.delete = this.delete.bind(this);
   }
 
   addToCart(product) {
@@ -37,6 +40,15 @@ class App extends Component {
     }
   }
 
+  delete(product) {
+    console.log(this.state.cartItems)
+    let newCart = this.state.cartItems
+    newCart.splice(newCart.indexOf(product), 1 );
+    console.log(this.state.cartItems)
+    this.setState({
+      cartItems: newCart
+    })
+  }
 
   toggleCart() {
     this.setState({cart: !this.state.cart})
@@ -74,7 +86,10 @@ class App extends Component {
     <div>
       <SizeBar small={this.handleSmall} medium={this.handleMedium} large={this.handleLarge} xlarge={this.handleXlarge} />
       <ProductTable products={this.state.products} addToCart={this.addToCart}/>
-      <ShoppingCart toggleCart={this.toggleCart} cart={this.state.cart} cartItems={this.state.cartItems}/>
+      <ShoppingCart toggleCart={this.toggleCart} cart={this.state.cart} cartItems={this.state.cartItems} delete={this.delete}/>
+      <Button aria-label="Delete" variant="outlined" style={{position: "fixed", top:10, right: 10}} onClick={this.toggleCart}>
+        <ShoppingCartIcon fontSize="small"/>
+      </Button>
     </div>
     );
   }
