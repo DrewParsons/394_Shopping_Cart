@@ -85,7 +85,7 @@ class App extends Component {
   return (
     <div>
       <SizeBar small={this.handleSmall} medium={this.handleMedium} large={this.handleLarge} xlarge={this.handleXlarge} />
-      <ProductTable products={this.state.products} addToCart={this.addToCart}/>
+      <ProductTable products={this.state.products} addToCart={this.addToCart} inventory={this.props.inventory} small={this.state.small} medium={this.state.medium} large={this.state.large} xlarge={this.state.xlarge}/>
       <ShoppingCart toggleCart={this.toggleCart} cart={this.state.cart} cartItems={this.state.cartItems} delete={this.delete}/>
       <Button aria-label="Delete" variant="outlined" style={{position: "fixed", top:10, right: 10}} onClick={this.toggleCart}>
         <ShoppingCartIcon fontSize="small"/>
